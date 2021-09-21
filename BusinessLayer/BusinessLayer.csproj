@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Folder Include="ValidationRules\" />
+    <Folder Include="ValidationRules\" />
   </ItemGroup>
 
 </Project>
