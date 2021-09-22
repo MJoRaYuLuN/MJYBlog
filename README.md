@@ -17,6 +17,5 @@ Eğitim Kampını Takip Etmek veya İzlemek için:<br />
 [![](https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mjorayulun/)
 [![](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://www.twitter.com/mjorayulun/)
 [![](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/mjorayulun/)
-[![](https://img.shields.io/badge/Bitcoin-000000?style=for-the-badge&logo=bitcoin&logoColor=white)](xpub6CbccRKtqCvB2Rp5FrvQdE6cGZKeTVXTc5gGgA1foyv3iNBWGPuoUoyGNHPZJ5SoMoqpSWa4SAfboxP1j3d49Lgk5HFt7M7FyfNSCdyYrQb)
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mjorayulun&label=Visits&color=0e75b6&style=flat" alt="mjorayulun" /> </p>
