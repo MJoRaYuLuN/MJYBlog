@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IBlogServices
+    public interface IBlogService
     {
         void BlogAdd(Blog category);
         void BlogDelete(Blog category);

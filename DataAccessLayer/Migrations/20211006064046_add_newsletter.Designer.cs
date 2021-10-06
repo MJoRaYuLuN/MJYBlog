@@ -3,14 +3,16 @@ using System;
 using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20211006064046_add_newsletter")]
+    partial class add_newsletter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -174,9 +176,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("Mail")
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("MailPermission")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<bool>("MailStatus")
                         .HasColumnType("tinyint(1)");
 
@@ -192,9 +191,6 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("WriterAbout")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("WriterCity")
                         .HasColumnType("longtext");
 
                     b.Property<string>("WriterEmail")

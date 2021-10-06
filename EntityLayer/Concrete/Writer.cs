@@ -19,8 +19,8 @@ namespace EntityLayer.Concrete
         public string WriterPassword { get; set; }
         [NotMapped]
         public string WriterPasswordConfirm { get; set; }
-        public string WriterCity { get; set; }
         public bool WriterStatus { get; set; }
+        public string WriterCity { get; set; }
         public List<Blog> Blogs { get; set; }
     }
 }
