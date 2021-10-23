@@ -1,0 +1,65 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+<div class="page-header">
+    <h3 class="page-title"> Yazılarınız </h3>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Yazar</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Yazılarım</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description text-right">
+                    <a href="~/blog/blogadd" class="btn btn-primary">Yeni Yazı Oluştur</a>
+                </p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th>Kategori</th>
+                            <th>Durum</th>
+                            <th width="5%" class="text-right">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.BlogID</td>
+                                <td>@item.BlogTitle</td>
+                                <td>@(((DateTime)item.BlogCreateDate).ToString("dd MMM yyyy"))</td>
+                                <td>@item.Category.CategoryName</td>
+                                <td>
+                                    @if (item.BlogStatus == false)
+                                    {
+                                        <label class="badge badge-danger">Pasif</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="badge badge-success">Aktif</label>
+                                    }
+                                </td>
+                                <td class="text-right">
+                                    <a href="#" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a>
+                                    <a href="#" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
