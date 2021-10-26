@@ -50,9 +50,34 @@
                                     }
                                 </td>
                                 <td class="text-right">
-                                    <a href="#" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></a>
+                                    <a href="~/blog/editblog/@item.BlogID" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a>
+                                    <a href="~/blog/deleteblog/@item.BlogID" class="btn btn-sm btn-danger" id="Sil_@item.BlogID"><i class="far fa-trash-alt"></i></a>
                                 </td>
+                                <script>
+                                    $('#Sil_@item.BlogID').click(function (e) {
+                                        e.preventDefault();
+                                        var linkURL = $(this).attr("href");
+
+                                        Swal.fire({
+                                            title: 'UYARI!',
+                                            text: "Blog yazısını silmek istediğinize emin misiniz?",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#5CBA6C',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Evet',
+                                            cancelButtonText: 'Hayır'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = linkURL;
+                                            }
+                                            else if (result.dismiss === Swal.DismissReason.cancel) {
+                                            }
+
+                                        })
+                                    });
+                                </script>
                             </tr>
                         }
                     </tbody>

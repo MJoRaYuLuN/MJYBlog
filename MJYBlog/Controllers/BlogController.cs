@@ -31,11 +31,10 @@ namespace MJYBlog.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values=bm.GetListWithCategoryByWriterBm(1);
+            var values = bm.GetListWithCategoryByWriterBm(1);
             return View(values);
         }
-        [HttpGet]
-        public IActionResult BlogAdd()
+        public void GetCategoryList()
         {
             CategoryManager cm = new CategoryManager(new EfCategoryRepository());
             List<SelectListItem> categoryvalues = (from x in cm.GetList()
@@ -45,6 +44,11 @@ namespace MJYBlog.Controllers
                                                        Value = x.CategoryID.ToString()
                                                    }).ToList();
             ViewBag.cv = categoryvalues;
+        }
+        [HttpGet]
+        public IActionResult BlogAdd()
+        {
+            GetCategoryList();
             return View();
         }
         [HttpPost]
@@ -67,8 +71,43 @@ namespace MJYBlog.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
+                GetCategoryList();
                 return View(p);
             }
         }
+        //public IActionResult DeleteBlog(int id)
+        //{
+        //    var blogvalue = bm.TGetByID(id);
+        //    bm.TDelete(blogvalue);
+        //    return RedirectToAction("BlogListWriter", "Blog");
+
+        //}
+        public IActionResult DeleteBlog(int id)
+        {
+            var x = bm.TGetByID(id);
+            x.BlogStatus = false;
+            bm.TUpdate(x);
+            return RedirectToAction("BlogListWriter");
+        }
+        [HttpGet]
+        public IActionResult EditBlog(int id)
+        {
+            GetCategoryList();
+            var blog = bm.TGetByID(id);
+            return View(blog);
+        }
+        [HttpPost]
+        public IActionResult EditBlog(Blog b)
+        {
+            var x = bm.TGetByID(b.BlogID);
+            x.BlogTitle = b.BlogTitle;
+            x.BlogImage = b.BlogImage;
+            x.BlogThumbnailImage = b.BlogThumbnailImage;
+            x.CategoryID = b.CategoryID;
+            x.BlogContent = b.BlogContent;
+            bm.TUpdate(x);
+            return RedirectToAction("BlogListWriter");
+        }
     }
 }
+

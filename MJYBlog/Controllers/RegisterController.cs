@@ -20,13 +20,7 @@ namespace MJYBlog.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            List<SelectListItem> values = (from x in rg.RegisterCities()
-                                           select new SelectListItem
-                                           {
-                                               Text = x.CountryName,
-                                               Value = x.CountryValue
-                                           }).ToList();
-            ViewBag.city = values;
+            GetCityList();
             return View();
         }
         [HttpPost]
@@ -59,9 +53,20 @@ namespace MJYBlog.Controllers
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
+                GetCityList();
                 return View(w);
             }
             
+        }
+        public void GetCityList()
+        {
+            List<SelectListItem> values = (from x in rg.RegisterCities()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CountryName,
+                                               Value = x.CountryValue
+                                           }).ToList();
+            ViewBag.city = values;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace BusinessLayer.Concrete
         {
             _catagoryDal.Update(t);
         }
-        public Category GetById(int id)
+        public Category TGetByID(int id)
         {
             return _catagoryDal.GetByID(id);
         }
