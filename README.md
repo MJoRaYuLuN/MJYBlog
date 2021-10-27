@@ -7,7 +7,7 @@ Eğitim serisinde <i>MsSQL</i> kullanılmıştır. Fakat bu proje <strong>MySQL<
 Eğitim Kampını Takip Etmek veya İzlemek için:<br />
 [![](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/playlist?list=PLKnjBHu2xXNNkinaVhPqPZG0ubaLN63ci)
 
-
+<img src = "https://raw.githubusercontent.com/MJoRaYuLuN/mjorayulun/main/logo.png" width = "595"></h2>
 
 
 
