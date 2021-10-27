@@ -87,7 +87,8 @@ namespace MJYBlog.Controllers
             var x = bm.TGetByID(id);
             x.BlogStatus = false;
             bm.TUpdate(x);
-            return RedirectToAction("BlogListWriter");
+            TempData["success"] = "Blog silindi.";
+            return RedirectToAction("BlogListByWriter");
         }
         [HttpGet]
         public IActionResult EditBlog(int id)
@@ -106,7 +107,7 @@ namespace MJYBlog.Controllers
             x.CategoryID = b.CategoryID;
             x.BlogContent = b.BlogContent;
             bm.TUpdate(x);
-            return RedirectToAction("BlogListWriter");
+            return RedirectToAction("BlogListByWriter");
         }
     }
 }

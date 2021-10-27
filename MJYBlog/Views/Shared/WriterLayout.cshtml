@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="~/writer/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="~/writer/css/style.css">
     <link rel="shortcut icon" href="~/writer/images/favicon.ico" />
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <link href="~/writer/vendors/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     <script src="~/writer/vendors/sweetalert2/sweetalert2.min.js"></script>
+    <link href="~/writer/vendors/toastr/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
 </head>
 <body>
@@ -111,5 +113,34 @@
     <script src="~/writer/js/misc.js"></script>
     <script src="~/writer/js/dashboard.js"></script>
     <script src="~/writer/js/todolist.js"></script>
+    <script src="~/writer/vendors/toastr/toastr.js"></script>
+
+    @if (TempData["danger"] != null)
+    {
+        <script type="text/javascript">
+                    $(function () {
+                        toastr.options.timeOut = "5000";
+                        toastr.options.closeButton = true;
+                        toastr.options.progressBar = true;
+                        toastr.options.newestOnTop = true;
+                        toastr.options.positionClass = 'toast-top-right';
+                        toastr['error']('@TempData["danger"]');
+                    });
+        </script>
+}
+    @if (TempData["success"] != null)
+    {
+        <script type="text/javascript">
+                    $(function () {
+                        toastr.options.timeOut = "5000";
+                        toastr.options.closeButton = true;
+                        toastr.options.progressBar = true;
+                        toastr.options.newestOnTop = true;
+                        toastr.options.positionClass = 'toast-top-right';
+                        toastr['success']('@TempData["success"]');
+                    });
+        </script>
+}
+
 </body>
 </html>
