@@ -18,4 +18,10 @@ Eğitim Kampını Takip Etmek veya İzlemek için:<br />
 [![](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://www.twitter.com/mjorayulun/)
 [![](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/mjorayulun/)
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=mjorayulun&label=Visits&color=0e75b6&style=flat" alt="mjorayulun" /> </p>
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=mjorayulun&label=Visits&color=0e75b6&style=flat" alt="mjorayulun" />
+[![GitHub stars](https://img.shields.io/github/stars/Naereen/StrapDown.js.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Naereen/StrapDown.js/stargazers/)
+[![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/)
+[![GitHub watchers](https://img.shields.io/github/watchers/Naereen/StrapDown.js.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/Naereen/StrapDown.js/watchers/)
+
+</p>
