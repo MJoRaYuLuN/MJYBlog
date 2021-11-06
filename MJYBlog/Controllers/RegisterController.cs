@@ -24,7 +24,7 @@ namespace MJYBlog.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(Writer w, string WriterConfirmPassword)
+        public IActionResult Index(Writer w)
         {
             WriterValidator wv = new WriterValidator();
             ValidationResult result = wv.Validate(w);
@@ -32,7 +32,7 @@ namespace MJYBlog.Controllers
             {
                 // Writer Validator Kullanımı Sonrasında Bu şekilde kullabiliriz.
                 w.WriterStatus = true;
-                wm.WriterAdd(w);
+                wm.TAdd(w);
                 return RedirectToAction("Index");
 
                 //Writer Validator ve Writer class'ında WriterConfirmPassword yoksa iaction içeriğine string WriterConfirmPassword eklenmeli ve aşağıdaki kısım kullanılmalı

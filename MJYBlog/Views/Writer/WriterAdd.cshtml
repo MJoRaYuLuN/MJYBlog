@@ -1,0 +1,53 @@
+﻿@model MJYBlog.Models.AddProfileImage
+@{
+    ViewData["Title"] = "WriterAdd";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazar Profil Bilgileri Düzenleme</h4>
+                <p class="card-description"></p>
+                @using (Html.BeginForm("WriterEditProfile", "Writer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(x => x.WriterID)
+                    <div class="form-group">
+                        <label for="isim">Yazar Ad Soyad</label>
+                        @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control", @id = "isim" })
+                        @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Posta Adresi</label>
+                        @Html.TextBoxFor(x => x.WriterEmail, new { @class = "form-control", @id = "email", type = "email" })
+                        @Html.ValidationMessageFor(x => x.WriterEmail, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="sifre">Şifre</label>
+                        @Html.PasswordFor(x => x.WriterPassword, new { @class = "form-control", @id = "sifre" })
+                        @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="sifre2">Şifre (Tekrar)</label>
+                        @Html.TextBoxFor(x => x.WriterPasswordConfirm, new { @class = "form-control", id = "sifre2" })
+                        @Html.ValidationMessageFor(x => x.WriterPasswordConfirm, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Yazar Görsel</label>
+                        <input type="file" name="WriterImage" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Yazar Hakkında</label>
+                        @Html.TextAreaFor(x => x.WriterEmail, new { @class = "form-control", @id = "email", rows = "4" })
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                    <button class="btn btn-light">İptal</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
