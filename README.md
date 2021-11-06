@@ -18,4 +18,9 @@ Eğitim Kampını Takip Etmek veya İzlemek için:<br />
 [![](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://www.twitter.com/mjorayulun/)
 [![](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/mjorayulun/)
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=mjorayulun&label=Visits&color=0e75b6&style=flat" alt="mjorayulun" /> </p>
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=mjorayulun&label=Visits&color=0e75b6&style=flat" alt="mjorayulun" />
+  ![GitHub Repo stars](https://img.shields.io/github/stars/mjorayulun/MJYBlog?style=social)
+  ![GitHub watchers](https://img.shields.io/github/watchers/mjorayulun/MJYBlog?style=social)
+
+</p>
