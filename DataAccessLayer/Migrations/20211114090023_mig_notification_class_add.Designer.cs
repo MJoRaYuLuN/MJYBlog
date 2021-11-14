@@ -3,14 +3,16 @@ using System;
 using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20211114090023_mig_notification_class_add")]
+    partial class mig_notification_class_add
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,35 +188,6 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("ContactID");
 
                     b.ToTable("Contacts");
-                });
-
-            modelBuilder.Entity("EntityLayer.Concrete.Message", b =>
-                {
-                    b.Property<int>("MessageID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("MessageDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("MessageDetails")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("MessageStatus")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Receiver")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Sender")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Subject")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("MessageID");
-
-                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.NewsLetter", b =>
