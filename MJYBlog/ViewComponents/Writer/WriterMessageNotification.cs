@@ -10,12 +10,11 @@ namespace MJYBlog.ViewComponents.Writer
 {
     public class WriterMessageNotification : ViewComponent
     {
-        MessageManager mm = new MessageManager(new EfMessageRepository());
+        Message2Manager mm = new Message2Manager(new EfMessage2Repository());
         public IViewComponentResult Invoke()
         {
-            string p;
-            p = "mjorayulun@gmail.com";
-            var values = mm.GetInboxListByWriter(p);
+            int id = 2;
+            var values = mm.GetInboxListByWriter(id);
             return View(values);
         }
     }
