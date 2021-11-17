@@ -20,7 +20,5 @@ Eğitim Kampını Takip Etmek veya İzlemek için:<br />
 
 <p align="left">
   <img src="https://komarev.com/ghpvc/?username=mjorayulun&label=Visits&color=0e75b6&style=flat" alt="mjorayulun" />
-  ![GitHub Repo stars](https://img.shields.io/github/stars/mjorayulun/MJYBlog?style=social)
-  ![GitHub watchers](https://img.shields.io/github/watchers/mjorayulun/MJYBlog?style=social)
 
 </p>
