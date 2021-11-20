@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -17,6 +18,7 @@ namespace MJYBlog.Controllers
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
+        Context c = new Context();
         [Authorize]
         public IActionResult Index()
         {
@@ -32,14 +34,14 @@ namespace MJYBlog.Controllers
         {
             return PartialView();
         }
-        [AllowAnonymous]
         [HttpGet]
         public IActionResult WriterEditProfile()
         {
-            var writervalues = wm.TGetByID(1);
+            var usermail = User.Identity.Name;
+            var writerid = c.Writers.Where(x => x.WriterEmail == usermail).Select(y => y.WriterID).FirstOrDefault();
+            var writervalues = wm.TGetByID(writerid);
             return View(writervalues);
         }
-        [AllowAnonymous]
         [HttpPost]
         public IActionResult WriterEditProfile(Writer p)
         {
@@ -59,14 +61,12 @@ namespace MJYBlog.Controllers
                 return View();
             }
         }
-        [AllowAnonymous]
         [HttpGet]
         public IActionResult WriterAdd()
         {
 
             return View();
         }
-        [AllowAnonymous]
         [HttpPost]
         public IActionResult WriterAdd(AddProfileImage p)
         {

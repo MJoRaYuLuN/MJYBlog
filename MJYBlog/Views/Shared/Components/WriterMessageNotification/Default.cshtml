@@ -7,10 +7,10 @@
         <div class="dropdown-divider"></div>
         <a class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-                <img src="~/writer/images/faces/face4.jpg" alt="image" class="profile-pic">
+                <img src="~/writer/images/faces/@item.SenderUser.WriterImage" alt="@item.SenderUser.WriterName" class="profile-pic">
             </div>
             <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h6 class="preview-subject ellipsis mb-1 font-weight-normal">@item.SenderID</h6>
+                <h6 class="preview-subject ellipsis mb-1 font-weight-normal">@item.SenderUser.WriterName</h6>
                 @{
                     DateTime mTarih = (DateTime)item.MessageDate;
                     DateTime suan = DateTime.Now;

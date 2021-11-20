@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Concrete
+@model List<Message2>
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<div class="page-header">
+    <h3 class="page-title"> Gelen Kutusu </h3>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Yazar</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Mesajlarım</li>
+        </ol>
+    </nav>
+</div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description text-right">
+                    <a href="~/blog/blogadd" class="btn btn-primary">Mesaj Gönder</a>
+                </p>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Gönderen</th>
+                            <th>Durum</th>
+                            <th width="5%" class="text-right">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MessageID</td>
+                                <td>@item.Subject</td>
+                                <td>@(((DateTime)item.MessageDate).ToString("dd MMM yyyy"))</td>
+                                <td>@item.SenderUser.WriterName</td>
+                                <td>
+                                    @if (item.MessageStatus == false)
+                                    {
+                                        <label class="badge badge-danger">Okunmamış</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="badge badge-success">Okunmuş</label>
+                                    }
+                                </td>
+                                <td class="text-right">
+                                    <a href="~/message/messagedetails/@item.MessageID" class="btn btn-sm btn-warning"><i class="far fa-eye"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

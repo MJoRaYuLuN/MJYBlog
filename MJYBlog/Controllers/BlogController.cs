@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -17,6 +18,7 @@ namespace MJYBlog.Controllers
     public class BlogController : Controller
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
+        Context c = new Context();
         public IActionResult Index()
         {
             var values = bm.GetBlogListWithCategory();
@@ -31,7 +33,9 @@ namespace MJYBlog.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetListWithCategoryByWriterBm(1);
+            var usermail = User.Identity.Name;
+            var writerid = c.Writers.Where(x => x.WriterEmail == usermail).Select(y => y.WriterID).FirstOrDefault();
+            var values = bm.GetListWithCategoryByWriterBm(writerid);
             return View(values);
         }
         public void GetCategoryList()
@@ -54,6 +58,8 @@ namespace MJYBlog.Controllers
         [HttpPost]
         public IActionResult BlogAdd(Blog p)
         {
+            var usermail = User.Identity.Name;
+            var writerid = c.Writers.Where(x => x.WriterEmail == usermail).Select(y => y.WriterID).FirstOrDefault();
             BlogValidator bv = new BlogValidator();
             ValidationResult result = bv.Validate(p);
             if (result.IsValid)
@@ -61,7 +67,7 @@ namespace MJYBlog.Controllers
                 // Writer Validator Kullanımı Sonrasında Bu şekilde kullabiliriz.
                 p.BlogStatus = true;
                 p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                p.WriterID = 1;
+                p.WriterID = writerid;
                 bm.TAdd(p);
                 return RedirectToAction("BlogListWriter", "Blog");
             }
